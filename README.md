@@ -31,5 +31,8 @@ The low pass filter at the output is needed to average out the signal of the bit
 
 # GNU Radio Prototype
 
+![image](https://github.com/aimamovic6/Sigma-Delta-DAC/assets/109389744/327bf098-a780-4247-986d-b7248e8319e6)
+
+
 # Migrating to FPGA based solution
 Digital data can be efficiently converted into analog format using FPGA, enabling a wide range of applications in electronics, communications, medicine, and other industries. With the implementation of Sigma-Delta converters, high precision and efficiency in conversion are achieved. FPGA technology further allows flexibility and adaptability in converter implementation, facilitating the integration of complex functionalities of digital-to-analog conversion. Research on this topic focuses on optimizing and adapting analog converter parameters using digital design and digital signal processing.
