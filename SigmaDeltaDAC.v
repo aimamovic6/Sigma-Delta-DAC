@@ -1,21 +1,21 @@
 module SigmaDeltaDAC(
-    input clk,                   System clock
-    input reset,                 Reset signal
-    input [70] dataIn,          8-bit input digital data
-    output dacOut                DAC PWM output
+    input clk,                 
+    input reset,                
+    input [7:0] dataIn,         
+    output dacOut               
 );
 
- Interpolating Filter Parameters
-parameter FILTER_N = 8;         Bit width of the data for the filter
-parameter TAPS = 4;             Number of taps in the filter
 
- Sigma-Delta Modulator Parameters
-parameter SDM_N = 8;            Bit width of the input data for the modulator
+parameter FILTER_N = 8;        
+parameter TAPS = 4;            
 
- Interpolated data signal
-wire [FILTER_N-10] filteredData;
 
- Instantiate the InterpolatingFilter
+parameter SDM_N = 8;         
+
+
+wire [FILTER_N-1:0] filteredData;
+
+
 InterpolatingFilter #(
     .N(FILTER_N),
     .TAPS(TAPS)
@@ -26,7 +26,7 @@ InterpolatingFilter #(
     .dataOut(filteredData)
 );
 
- Instantiate the SigmaDeltaModulator
+
 SigmaDeltaModulator #(
     .N(SDM_N)
 ) sigmaDeltaModulator (
