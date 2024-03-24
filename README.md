@@ -30,3 +30,6 @@ The bitstream signal can be viewed as having its information predominantly situa
 The low pass filter at the output is needed to average out the signal of the bitstream. 
 
 # GNU Radio Prototype
+
+# Migrating to FPGA based solution
+Digital data can be efficiently converted into analog format using FPGA, enabling a wide range of applications in electronics, communications, medicine, and other industries. With the implementation of Sigma-Delta converters, high precision and efficiency in conversion are achieved. FPGA technology further allows flexibility and adaptability in converter implementation, facilitating the integration of complex functionalities of digital-to-analog conversion. Research on this topic focuses on optimizing and adapting analog converter parameters using digital design and digital signal processing.
