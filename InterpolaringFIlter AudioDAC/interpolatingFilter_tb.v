@@ -6,6 +6,8 @@ module interpolatingFilter_tb;
     reg clk;
     reg clk_enable;
     reg reset;
+	 reg slow_clk;
+    integer counter;
     reg signed [15:0] input_data;
 
     // Output signals
@@ -25,7 +27,20 @@ module interpolatingFilter_tb;
     // Clock generation
     initial begin
         clk = 0;
-        forever #11350 clk = ~clk;  // Generate a 44.1 kHz clock
+		  forever #88 clk = ~clk;  // Generate a 5.6 MHz clock
+        //forever #11350 clk = ~clk;  // Generate a 44.1 kHz clock
+    end
+	 
+	 initial begin
+        slow_clk = 0;
+        counter = 0;
+        forever @(posedge clk) begin
+            counter = counter + 1;
+            if (counter == 64) begin
+                slow_clk = ~slow_clk;
+                counter = 0;
+            end
+        end
     end
 
     // Test stimuli - chirp signal
@@ -43,8 +58,8 @@ module interpolatingFilter_tb;
         #100;
         reset = 0;
         #100;
-
-        // Load test data
+		  
+		   // Load test data
 		 filter_in_data_log_force[   0] <= 17'h00000;
 		 filter_in_data_log_force[   1] <= 17'h08000;
 		 filter_in_data_log_force[   2] <= 17'h08000;
@@ -1081,18 +1096,21 @@ module interpolatingFilter_tb;
 		 filter_in_data_log_force[1033] <= 17'h00000;
 		 filter_in_data_log_force[1034] <= 17'h00000;
 		 filter_in_data_log_force[1035] <= 17'h00000;
-
-
-        for (i = 0; i <= 1035; i = i + 1) begin
-            input_data = filter_in_data_log_force[i][15:0];
-            //#10;
-				@(posedge clk);	
-        end
+	 
+		  
+//    end
+	 
+	 
+	 
+	 for (i = 0; i <= 1035; i = i + 1) begin
+			
+			@(posedge slow_clk);
+			input_data = filter_in_data_log_force[i][15:0];		
+	 end
 
         #100;
         $stop; 
     end
-
     // Monitor outputs
     initial begin
         $monitor("Time = %t, Input = %h, Output = %h, CE Out = %b",
