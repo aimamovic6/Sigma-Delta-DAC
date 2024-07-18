@@ -1,5 +1,5 @@
 module interpolatingFilter(
-    
+
 	 input         clk,
     input         clk_enable,
     input         reset,
@@ -52,7 +52,7 @@ module interpolatingFilter(
 
     cic1 filter4 (
         .clk(clk),
-        .clk_enable(clk_enable),
+        .clk_enable(ce_cic2),
         .reset(reset),
         .filter_in(output_invSincSpec),
         .filter_out(output_cic1),
@@ -85,7 +85,7 @@ module interpolatingFilter(
         .filter_out(output_data),
         .ce_out(ce_cic4)
     );
-   
+
     assign ce_out = ce_halfBandFirst;
 
 endmodule

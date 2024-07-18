@@ -1,37 +1,33 @@
 `timescale 1ns / 1ps
 
-module interpolatingFilter_tb;
+module top_tb;
 
-    // Input signals
+
     reg clk;
-    reg clk_enable;
     reg reset;
-	 reg slow_clk;
+    reg slow_clk;
     integer counter;
     reg signed [15:0] input_data;
 
-    // Output signals
+
     wire signed [15:0] output_data;
-    wire ce_out;
-	 integer i;
-    // Instantiate the top module
-    interpolatingFilter uut (
+    integer i;
+
+
+    sd_dac_top uut (
         .clk(clk),
-        .clk_enable(clk_enable),
         .reset(reset),
         .input_data(input_data),
-        .output_data(output_data),
-        .ce_out(ce_out)
+        .output_data(output_data)
     );
 
-    // Clock generation
+
     initial begin
         clk = 0;
-		  forever #88 clk = ~clk;  // Generate a 5.6 MHz clock
-        //forever #11350 clk = ~clk;  // Generate a 44.1 kHz clock
+        forever #88 clk = ~clk;  // 5.6 MHz clk
     end
-	 
-	 initial begin
+
+    initial begin
         slow_clk = 0;
         counter = 0;
         forever @(posedge clk) begin
@@ -43,12 +39,14 @@ module interpolatingFilter_tb;
         end
     end
 
-    // Test stimuli - chirp signal
+
     reg signed [16:0] filter_in_data_log_force[0:1035];
+
+
+
 
     initial begin
         // Initialize inputs
-        clk_enable = 1;
         reset = 1;
         input_data = 0;
 
@@ -58,8 +56,9 @@ module interpolatingFilter_tb;
         #100;
         reset = 0;
         #100;
-		  
-		   // Load test data
+
+
+
 		 filter_in_data_log_force[   0] <= 17'h00000;
 		 filter_in_data_log_force[   1] <= 17'h08000;
 		 filter_in_data_log_force[   2] <= 17'h08000;
@@ -67,7 +66,7 @@ module interpolatingFilter_tb;
 		 filter_in_data_log_force[   4] <= 17'h00000;
 		 filter_in_data_log_force[   5] <= 17'h00000;
 		 filter_in_data_log_force[   6] <= 17'h00000;
-		 filter_in_data_log_force[   7] <= 17'h00000;				
+		 filter_in_data_log_force[   7] <= 17'h00000;
 		 filter_in_data_log_force[   8] <= 17'h08000;
 		 filter_in_data_log_force[   9] <= 17'h08000;
 		 filter_in_data_log_force[  10] <= 17'h07fff;
@@ -1096,25 +1095,27 @@ module interpolatingFilter_tb;
 		 filter_in_data_log_force[1033] <= 17'h00000;
 		 filter_in_data_log_force[1034] <= 17'h00000;
 		 filter_in_data_log_force[1035] <= 17'h00000;
-	 
-		  
-//    end
-	 
-	 
-	 
-	 for (i = 0; i <= 1035; i = i + 1) begin
-			
-			@(posedge slow_clk);
-			input_data = filter_in_data_log_force[i][15:0];		
-	 end
+
+
+
+
+
+
+        for (i = 0; i <= 1035; i = i + 1) begin
+            @(posedge slow_clk);
+            input_data = filter_in_data_log_force[i][15:0];
+        end
 
         #100;
-        $stop; 
-    end
-    // Monitor outputs
-    initial begin
-        $monitor("Time = %t, Input = %h, Output = %h, CE Out = %b",
-                 $time, input_data, output_data, ce_out);
+        $stop;
     end
 
+    // Monitor outputs
+    //initial begin
+      //  $monitor("Time = %t, Input = %h, Output = %h",
+        //         $time, input_data, output_data);
+    //end
+
 endmodule
+	 
+	 
