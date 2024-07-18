@@ -1,13 +1,13 @@
 module interpolatingFilter(
 
-	 input         clk,
+    input         clk,
     input         clk_enable,
     input         reset,
     input  signed [15:0] input_data,
     output signed [15:0] output_data,
     output        ce_out
 );
-    // Intermediate signals to connect filters
+
     wire signed [20:0] output_halfBandFirst;
     wire signed [19:0] output_halfBandSecond;
     wire signed [17:0] output_invSincSpec;
@@ -22,7 +22,6 @@ module interpolatingFilter(
     wire              ce_cic3;
     wire              ce_cic4;
 
-    // Instantiate each filter module
     halfBandFirst filter1 (
         .clk(clk),
         .clk_enable(ce_halfBandSecond),
