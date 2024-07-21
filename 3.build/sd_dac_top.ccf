@@ -93,8 +93,8 @@
 
 # CologneChip GateMate CCGM1A1/A2
 
-Pin_in "clk" Loc = "IO_SB_A8"  | SCHMITT_TRIGGER=true; # CLK0
-Pin_in   "reset"  Loc = "IO_EB_B0"; # SW3
+Net "clk" Loc = "IO_SB_A8"  | SCHMITT_TRIGGER=true; # CLK0
+Net "reset"  Loc = "IO_EB_B0"; # SW3
 
 
 
