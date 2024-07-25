@@ -43,7 +43,7 @@ OFL = $(TOOL_ROOT)/openFPGALoader/build/openFPGALoader$(EXE)
 GTKW = gtkwave
 IVL = iverilog
 VVP = vvp
-IVLFLAGS = -Winfloop -g2012 -gspecify -Ttyp
+IVLFLAGS = -g2012 -gspecify -Ttyp
 
 # Source Directory
 SRC = ../1.hw
@@ -101,9 +101,9 @@ all: synth impl jtag
 
 ## verilog simulation targets
 vlog_sim.vvp:
-	$(IVL) $(IVLFLAGS) -o $(SIM)/$@ $(VLOG_SRC) $(SIM)/$(TOP)_tb.v $(CELLS_SYNTH)
+	$(IVL) $(IVLFLAGS) -o $(SIM)/$@ $(VLOG_SRC) $(SIM)/$(TOP)_tb.v $(CELLS_SYNTH) $(CELLS_IMPL)
 synth_sim.vvp:
-	$(IVL) $(IVLFLAGS) -o $(SIM)/$@ net/$(TOP)_synth.v $(SIM)/$(TOP)_tb.v $(CELLS_SYNTH)
+	$(IVL) $(IVLFLAGS) -o $(SIM)/$@ net/$(TOP)_synth.v $(SIM)/$(TOP)_tb.v $(CELLS_SYNTH)  $(CELLS_IMPL)
 impl_sim.vvp:
 	$(IVL) $(IVLFLAGS) -o $(SIM)/$@ $(TOP)_00.v $(SIM)/$(TOP)_tb.v $(CELLS_IMPL)
 .PHONY: %sim %sim.vvp
