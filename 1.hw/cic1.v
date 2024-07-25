@@ -207,4 +207,4 @@ module cic1
   // Assignment Statements
   assign ce_out = phase_1;
   assign filter_out = output_register;
-endmodule  // cic1
+endmodule // cic1 
