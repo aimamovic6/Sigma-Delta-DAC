@@ -22,30 +22,30 @@ module interpolatingFilter(
     wire              ce_cic3;
     wire              ce_cic4;
 
-    // Instantiate each filter module
-    //halfBandFirst filter1 (
-        //.clk(clk),
-        //.clk_enable(ce_halfBandSecond),
-        //.reset(reset),
-        //.filter_in(input_data),
-        //.filter_out(output_halfBandFirst),
-        //.ce_out(ce_halfBandFirst)
-    //);
+    Instantiate each filter module
+    halfBandFirst filter1 (
+        .clk(clk),
+        .clk_enable(ce_halfBandSecond),
+        .reset(reset),
+        .filter_in(input_data),
+        .filter_out(output_halfBandFirst),
+        .ce_out(ce_halfBandFirst)
+    );
 
-    //halfBandSecond filter2 (
-        //.clk(clk),
-        //.clk_enable(ce_inverseSinc),
-        //.reset(reset),
-        //.filter_in(input_data),
-        //.filter_out(output_halfBandSecond),
-        //.ce_out(ce_halfBandSecond)
-    //);
+    halfBandSecond filter2 (
+        .clk(clk),
+        .clk_enable(ce_inverseSinc),
+        .reset(reset),
+        .filter_in(output_halfBandFirst),
+        .filter_out(output_halfBandSecond),
+        .ce_out(ce_halfBandSecond)
+    );
 
     inverseSinc filter3 (
         .clk(clk),
         .clk_enable(ce_cic1),
         .reset(reset),
-        .filter_in(input_data),
+        .filter_in(output_halfBandSecond),
         .filter_out(output_inverseSinc),
         .ce_out(ce_inverseSinc)
     );
