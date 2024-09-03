@@ -22,7 +22,7 @@ module interpolatingFilter(
     wire              ce_cic3;
     wire              ce_cic4;
 
-    Instantiate each filter module
+  //  Instantiate each filter module
     halfBandFirst filter1 (
         .clk(clk),
         .clk_enable(ce_halfBandSecond),
