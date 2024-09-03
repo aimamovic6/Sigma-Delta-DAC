@@ -1,0 +1,92 @@
+GateMate (c) Place and Route
+Version 4.2 (1 July 2024)
+All Rights Reserved (c) Cologne Chip AG
+
+Command line Options:
+       h:  False
+       i: net/sd_dac_top_synth.v
+       o: sd_dac_top
+     mXA:   True
+     mMA:   True
+    Cinp:  False
+   Coutp:  False
+     cdf:   True
+     pin:   True
+     plc:   True
+       s:   True
+     cCP:  False
+     gCP:  False
+      AF:   True
+      dC:   True
+    uCIO:  False
+      pB:       
+      sp:  False
+     crf:  False
+       v:  False
+      Gs:      0
+      om:      3
+      sf:    0.8
+      dl:   True
+      df:   True
+   m_spi:      0
+      pr:   True
+     cgb:  False
+    cgbc:  False
+     cgo:      0
+      tm:      3
+      tp:      0
+   s_spi:      0
+     ics:  False
+     lib:   ccag
+     ccf: sd_dac_top.ccf
+
+X_CONVERT Netlist Converter
+
+Library Mode used: CCAG_GateMate
+...
+17522 Lines read
+
+found components:
+        CC_LUT3       138
+        CC_LUT4        70
+        CC_LUT2        44
+        CC_LUT1        20
+        CC_ADDF       629
+        CC_BUFG         2
+         CC_DFF       781
+         CC_MX4        25
+        CC_MULT        16
+        CC_IBUF         2
+        CC_OBUF         1
+         CC_PLL         1
+
+REMOVE_UNUSED
+         0 unused Components removed
+REMOVE_BUF_INV
+         0 BUF removed
+         0 INV removed
+REPLACE_LUTS
+REPLACE_OTHERS
+Number of inserted dummy components 0
+157 new components inserted
+WRITE_REFCOMP
+SAVE_NET
+
+Conversion finished!
+ASCII netlist generated: sd_dac_top_x_convert.prn
+Time (s):       0.907
+
+Read sd_dac_top.net
+
+MAPPER started
+
+Map Adder
+22 Adder chains mapped
+
+During map of 112 CPEs 108 gates deleted!
+
+309 CPEs replaced by double bit CPEs
+
+Number of Combined CPEs:   264
+#### Error: Exception Handler called. ExitCode: 112
+Exception Class: EAccessViolation

@@ -1,7 +1,7 @@
 module sd_dac_top(
     input clk,             // Global clock input (128x44.1 kHz)
     input reset,           // Reset signal
-    output signed output_pdm // 1-bit PDM output
+    output output_pdm // 1-bit PDM output
 );
 
     wire clk_44kHz;        // Clock signal for the sine wave generator (44.1 kHz)

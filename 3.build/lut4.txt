@@ -1,0 +1,26 @@
+0001   3 abcd
+007F   1 ((/AB\)+c)d
+00BF   1 ((/aB\)+c)d
+0700   1 cD/AB\
+07CC   1 BD?0:1:c:ac
+3F80   1 BD?0:AC:1:c
+4000   3 aBCD
+4770   1 BD?C:aC:c:a
+632A   1 AD?0:/BC\:b^C:b
+77F0   1 D?C:/AB\
+7F00   3 ((/AB\)+c)D
+7FFF   1 /AB\+c+d
+8000  36 ABCD
+8D43   1 BC?/AD\:D:0:a^D
+AECA   1 AB?0:/Cd\:C^D:1
+BCE8   1 AB?CD:C:C^D:1
+BE80   1 AD?0:BC:B^C:1
+C0F5   5 DC?a:0:1:B
+C3A4   1 DC?aB:b:A:B
+CB1F   1 BC?1:/aD\:ad:D
+CDB0   1 BD?C:AC:ac:1
+CDC2   1 BC?A^D:D:0:1
+F044   1 D?aB:C
+FC02   1 BD?Ac:0:C:1
+FFE0   1 (C/ab\)+D
+ Gesamt:   70 DS4:    14
