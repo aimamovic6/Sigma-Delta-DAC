@@ -126,6 +126,7 @@ clean:
 	$(RM) *.path_struc
 	$(RM) *.net
 	$(RM) *.id
+	$(RM) *.idh
 	$(RM) *.prn
 	$(RM) *_00.v
 	$(RM) *.used
