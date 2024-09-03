@@ -7,21 +7,22 @@ module interpolatingFilter(
     output signed [15:0] output_data,
     output        ce_out
 );
-
+    // Intermediate signals to connect filters
     wire signed [20:0] output_halfBandFirst;
     wire signed [19:0] output_halfBandSecond;
-    wire signed [17:0] output_invSincSpec;
+    wire signed [17:0] output_inverseSinc;
     wire signed [18:0] output_cic1;
     wire signed [17:0] output_cic2;
     wire signed [16:0] output_cic3;
     wire              ce_halfBandFirst;
     wire              ce_halfBandSecond;
-    wire              ce_invSincSpec;
+    wire              ce_inverseSinc;
     wire              ce_cic1;
     wire              ce_cic2;
     wire              ce_cic3;
     wire              ce_cic4;
 
+    // Instantiate each filter module
     halfBandFirst filter1 (
         .clk(clk),
         .clk_enable(ce_halfBandSecond),
@@ -33,31 +34,31 @@ module interpolatingFilter(
 
     halfBandSecond filter2 (
         .clk(clk),
-        .clk_enable(ce_invSincSpec),
+        .clk_enable(ce_inverseSinc),
         .reset(reset),
         .filter_in(output_halfBandFirst),
         .filter_out(output_halfBandSecond),
         .ce_out(ce_halfBandSecond)
     );
-    
-    invSincSpec filter3 (
+
+    inverseSinc filter3 (
         .clk(clk),
         .clk_enable(ce_cic1),
         .reset(reset),
         .filter_in(output_halfBandSecond),
-        .filter_out(output_invSincSpec),
-        .ce_out(ce_invSincSpec)
+        .filter_out(output_inverseSinc),
+        .ce_out(ce_inverseSinc)
     );
-  
+
     cic1 filter4 (
         .clk(clk),
         .clk_enable(ce_cic2),
         .reset(reset),
-        .filter_in(output_invSincSpec),
+        .filter_in(output_inverseSinc),
         .filter_out(output_cic1),
         .ce_out(ce_cic1)
     );
-   
+
     cic2 filter5 (
         .clk(clk),
         .clk_enable(ce_cic3),

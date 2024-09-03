@@ -49,10 +49,7 @@
 // Numerator             : s22,20 -> [-2 2)
 // -------------------------------------------------------------
 
-
-
-
-//`timescale 1 ns / 1 ns
+`timescale 1 ns / 1 ns
 
 module halfBandFirst
                (
@@ -77,39 +74,6 @@ module halfBandFirst
   // Local Functions
   // Type Definitions
   // Constants
-  parameter signed [21:0] coeffphase1_1 = 22'b0000000000000000010110; //sfix22_En20
-  parameter signed [21:0] coeffphase1_2 = 22'b1111111111111111011010; //sfix22_En20
-  parameter signed [21:0] coeffphase1_3 = 22'b0000000000000001000101; //sfix22_En20
-  parameter signed [21:0] coeffphase1_4 = 22'b1111111111111110001101; //sfix22_En20
-  parameter signed [21:0] coeffphase1_5 = 22'b0000000000000010110111; //sfix22_En20
-  parameter signed [21:0] coeffphase1_6 = 22'b1111111111111011101010; //sfix22_En20
-  parameter signed [21:0] coeffphase1_7 = 22'b0000000000000110011000; //sfix22_En20
-  parameter signed [21:0] coeffphase1_8 = 22'b1111111111110110111011; //sfix22_En20
-  parameter signed [21:0] coeffphase1_9 = 22'b0000000000001100101000; //sfix22_En20
-  parameter signed [21:0] coeffphase1_10 = 22'b1111111111101110110100; //sfix22_En20
-  parameter signed [21:0] coeffphase1_11 = 22'b0000000000010110111110; //sfix22_En20
-  parameter signed [21:0] coeffphase1_12 = 22'b1111111111100001110010; //sfix22_En20
-  parameter signed [21:0] coeffphase1_13 = 22'b0000000000100111001011; //sfix22_En20
-  parameter signed [21:0] coeffphase1_14 = 22'b1111111111001101111000; //sfix22_En20
-  parameter signed [21:0] coeffphase1_15 = 22'b0000000000111111011010; //sfix22_En20
-  parameter signed [21:0] coeffphase1_16 = 22'b1111111110110000100111; //sfix22_En20
-  parameter signed [21:0] coeffphase1_17 = 22'b0000000001100010100000; //sfix22_En20
-  parameter signed [21:0] coeffphase1_18 = 22'b1111111110000110110010; //sfix22_En20
-  parameter signed [21:0] coeffphase1_19 = 22'b0000000010010100001001; //sfix22_En20
-  parameter signed [21:0] coeffphase1_20 = 22'b1111111101001100000011; //sfix22_En20
-  parameter signed [21:0] coeffphase1_21 = 22'b0000000011011001100101; //sfix22_En20
-  parameter signed [21:0] coeffphase1_22 = 22'b1111111011111001110111; //sfix22_En20
-  parameter signed [21:0] coeffphase1_23 = 22'b0000000100111011001101; //sfix22_En20
-  parameter signed [21:0] coeffphase1_24 = 22'b1111111010000101000011; //sfix22_En20
-  parameter signed [21:0] coeffphase1_25 = 22'b0000000111001000100011; //sfix22_En20
-  parameter signed [21:0] coeffphase1_26 = 22'b1111110111010111001001; //sfix22_En20
-  parameter signed [21:0] coeffphase1_27 = 22'b0000001010100011101110; //sfix22_En20
-  parameter signed [21:0] coeffphase1_28 = 22'b1111110010111001001111; //sfix22_En20
-  parameter signed [21:0] coeffphase1_29 = 22'b0000010000101011110000; //sfix22_En20
-  parameter signed [21:0] coeffphase1_30 = 22'b1111101001110101111001; //sfix22_En20
-  parameter signed [21:0] coeffphase1_31 = 22'b0000011111110010001000; //sfix22_En20
-  parameter signed [21:0] coeffphase1_32 = 22'b1111001010001010100111; //sfix22_En20
-  parameter signed [21:0] coeffphase1_33 = 22'b0010100010110011111000; //sfix22_En20
   parameter signed [21:0] coeffphase1_34 = 22'b0010100010110011111000; //sfix22_En20
   parameter signed [21:0] coeffphase1_35 = 22'b1111001010001010100111; //sfix22_En20
   parameter signed [21:0] coeffphase1_36 = 22'b0000011111110010001000; //sfix22_En20
@@ -143,309 +107,87 @@ module halfBandFirst
   parameter signed [21:0] coeffphase1_64 = 22'b0000000000000001000101; //sfix22_En20
   parameter signed [21:0] coeffphase1_65 = 22'b1111111111111111011010; //sfix22_En20
   parameter signed [21:0] coeffphase1_66 = 22'b0000000000000000010110; //sfix22_En20
-  parameter signed [21:0] coeffphase2_1 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_2 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_3 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_4 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_5 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_6 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_7 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_8 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_9 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_10 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_11 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_12 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_13 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_14 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_15 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_16 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_17 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_18 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_19 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_20 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_21 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_22 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_23 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_24 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_25 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_26 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_27 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_28 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_29 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_30 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_31 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_32 = 22'b0000000000000000000000; //sfix22_En20
+  
   parameter signed [21:0] coeffphase2_33 = 22'b0100000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_34 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_35 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_36 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_37 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_38 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_39 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_40 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_41 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_42 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_43 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_44 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_45 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_46 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_47 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_48 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_49 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_50 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_51 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_52 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_53 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_54 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_55 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_56 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_57 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_58 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_59 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_60 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_61 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_62 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_63 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_64 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_65 = 22'b0000000000000000000000; //sfix22_En20
-  parameter signed [21:0] coeffphase2_66 = 22'b0000000000000000000000; //sfix22_En20
+ 
 
   // Signals
-  reg  [1:0] cur_count; // ufix2
-  wire phase_1; // boolean
-  reg  signed [15:0] delay_pipeline [0:65] ; // sfix16_En15
-  wire signed [37:0] product; // sfix38_En35
-  wire signed [21:0] product_mux; // sfix22_En20
-  wire signed [37:0] product_1; // sfix38_En35
-  wire signed [21:0] product_mux_1; // sfix22_En20
-  wire signed [37:0] product_2; // sfix38_En35
-  wire signed [21:0] product_mux_2; // sfix22_En20
-  wire signed [37:0] product_3; // sfix38_En35
-  wire signed [21:0] product_mux_3; // sfix22_En20
-  wire signed [37:0] product_4; // sfix38_En35
-  wire signed [21:0] product_mux_4; // sfix22_En20
-  wire signed [37:0] product_5; // sfix38_En35
-  wire signed [21:0] product_mux_5; // sfix22_En20
-  wire signed [37:0] product_6; // sfix38_En35
-  wire signed [21:0] product_mux_6; // sfix22_En20
-  wire signed [37:0] product_7; // sfix38_En35
-  wire signed [21:0] product_mux_7; // sfix22_En20
-  wire signed [37:0] product_8; // sfix38_En35
-  wire signed [21:0] product_mux_8; // sfix22_En20
-  wire signed [37:0] product_9; // sfix38_En35
-  wire signed [21:0] product_mux_9; // sfix22_En20
-  wire signed [37:0] product_10; // sfix38_En35
-  wire signed [21:0] product_mux_10; // sfix22_En20
-  wire signed [37:0] product_11; // sfix38_En35
-  wire signed [21:0] product_mux_11; // sfix22_En20
-  wire signed [37:0] product_12; // sfix38_En35
-  wire signed [21:0] product_mux_12; // sfix22_En20
-  wire signed [37:0] product_13; // sfix38_En35
-  wire signed [21:0] product_mux_13; // sfix22_En20
-  wire signed [37:0] product_14; // sfix38_En35
-  wire signed [21:0] product_mux_14; // sfix22_En20
-  wire signed [37:0] product_15; // sfix38_En35
-  wire signed [21:0] product_mux_15; // sfix22_En20
-  wire signed [37:0] product_16; // sfix38_En35
-  wire signed [21:0] product_mux_16; // sfix22_En20
-  wire signed [37:0] product_17; // sfix38_En35
-  wire signed [21:0] product_mux_17; // sfix22_En20
-  wire signed [37:0] product_18; // sfix38_En35
-  wire signed [21:0] product_mux_18; // sfix22_En20
-  wire signed [37:0] product_19; // sfix38_En35
-  wire signed [21:0] product_mux_19; // sfix22_En20
-  wire signed [37:0] product_20; // sfix38_En35
-  wire signed [21:0] product_mux_20; // sfix22_En20
-  wire signed [37:0] product_21; // sfix38_En35
-  wire signed [21:0] product_mux_21; // sfix22_En20
-  wire signed [37:0] product_22; // sfix38_En35
-  wire signed [21:0] product_mux_22; // sfix22_En20
-  wire signed [37:0] product_23; // sfix38_En35
-  wire signed [21:0] product_mux_23; // sfix22_En20
-  wire signed [37:0] product_24; // sfix38_En35
-  wire signed [21:0] product_mux_24; // sfix22_En20
-  wire signed [37:0] product_25; // sfix38_En35
-  wire signed [21:0] product_mux_25; // sfix22_En20
-  wire signed [37:0] product_26; // sfix38_En35
-  wire signed [21:0] product_mux_26; // sfix22_En20
-  wire signed [37:0] product_27; // sfix38_En35
-  wire signed [21:0] product_mux_27; // sfix22_En20
-  wire signed [37:0] product_28; // sfix38_En35
-  wire signed [21:0] product_mux_28; // sfix22_En20
-  wire signed [37:0] product_29; // sfix38_En35
-  wire signed [21:0] product_mux_29; // sfix22_En20
-  wire signed [37:0] product_30; // sfix38_En35
-  wire signed [21:0] product_mux_30; // sfix22_En20
-  wire signed [37:0] product_31; // sfix38_En35
-  wire signed [21:0] product_mux_31; // sfix22_En20
-  wire signed [37:0] product_32; // sfix38_En35
-  wire signed [21:0] product_mux_32; // sfix22_En20
-  wire signed [37:0] product_33; // sfix38_En35
-  wire signed [21:0] product_mux_33; // sfix22_En20
-  wire signed [37:0] product_34; // sfix38_En35
-  wire signed [21:0] product_mux_34; // sfix22_En20
-  wire signed [37:0] product_35; // sfix38_En35
-  wire signed [21:0] product_mux_35; // sfix22_En20
-  wire signed [37:0] product_36; // sfix38_En35
-  wire signed [21:0] product_mux_36; // sfix22_En20
-  wire signed [37:0] product_37; // sfix38_En35
-  wire signed [21:0] product_mux_37; // sfix22_En20
-  wire signed [37:0] product_38; // sfix38_En35
-  wire signed [21:0] product_mux_38; // sfix22_En20
-  wire signed [37:0] product_39; // sfix38_En35
-  wire signed [21:0] product_mux_39; // sfix22_En20
-  wire signed [37:0] product_40; // sfix38_En35
-  wire signed [21:0] product_mux_40; // sfix22_En20
-  wire signed [37:0] product_41; // sfix38_En35
-  wire signed [21:0] product_mux_41; // sfix22_En20
-  wire signed [37:0] product_42; // sfix38_En35
-  wire signed [21:0] product_mux_42; // sfix22_En20
-  wire signed [37:0] product_43; // sfix38_En35
-  wire signed [21:0] product_mux_43; // sfix22_En20
-  wire signed [37:0] product_44; // sfix38_En35
-  wire signed [21:0] product_mux_44; // sfix22_En20
-  wire signed [37:0] product_45; // sfix38_En35
-  wire signed [21:0] product_mux_45; // sfix22_En20
-  wire signed [37:0] product_46; // sfix38_En35
-  wire signed [21:0] product_mux_46; // sfix22_En20
-  wire signed [37:0] product_47; // sfix38_En35
-  wire signed [21:0] product_mux_47; // sfix22_En20
-  wire signed [37:0] product_48; // sfix38_En35
-  wire signed [21:0] product_mux_48; // sfix22_En20
-  wire signed [37:0] product_49; // sfix38_En35
-  wire signed [21:0] product_mux_49; // sfix22_En20
-  wire signed [37:0] product_50; // sfix38_En35
-  wire signed [21:0] product_mux_50; // sfix22_En20
-  wire signed [37:0] product_51; // sfix38_En35
-  wire signed [21:0] product_mux_51; // sfix22_En20
-  wire signed [37:0] product_52; // sfix38_En35
-  wire signed [21:0] product_mux_52; // sfix22_En20
-  wire signed [37:0] product_53; // sfix38_En35
-  wire signed [21:0] product_mux_53; // sfix22_En20
-  wire signed [37:0] product_54; // sfix38_En35
-  wire signed [21:0] product_mux_54; // sfix22_En20
-  wire signed [37:0] product_55; // sfix38_En35
-  wire signed [21:0] product_mux_55; // sfix22_En20
-  wire signed [37:0] product_56; // sfix38_En35
-  wire signed [21:0] product_mux_56; // sfix22_En20
-  wire signed [37:0] product_57; // sfix38_En35
-  wire signed [21:0] product_mux_57; // sfix22_En20
-  wire signed [37:0] product_58; // sfix38_En35
-  wire signed [21:0] product_mux_58; // sfix22_En20
-  wire signed [37:0] product_59; // sfix38_En35
-  wire signed [21:0] product_mux_59; // sfix22_En20
-  wire signed [37:0] product_60; // sfix38_En35
-  wire signed [21:0] product_mux_60; // sfix22_En20
-  wire signed [37:0] product_61; // sfix38_En35
-  wire signed [21:0] product_mux_61; // sfix22_En20
-  wire signed [37:0] product_62; // sfix38_En35
-  wire signed [21:0] product_mux_62; // sfix22_En20
-  wire signed [37:0] product_63; // sfix38_En35
-  wire signed [21:0] product_mux_63; // sfix22_En20
-  wire signed [37:0] product_64; // sfix38_En35
-  wire signed [21:0] product_mux_64; // sfix22_En20
-  wire signed [37:0] product_65; // sfix38_En35
-  wire signed [21:0] product_mux_65; // sfix22_En20
-  wire signed [44:0] sumvector1 [0:32] ; // sfix45_En35
-  wire signed [37:0] add_signext; // sfix38_En35
-  wire signed [37:0] add_signext_1; // sfix38_En35
-  wire signed [38:0] add_temp; // sfix39_En35
-  wire signed [37:0] add_signext_2; // sfix38_En35
-  wire signed [37:0] add_signext_3; // sfix38_En35
-  wire signed [38:0] add_temp_1; // sfix39_En35
-  wire signed [37:0] add_signext_4; // sfix38_En35
-  wire signed [37:0] add_signext_5; // sfix38_En35
-  wire signed [38:0] add_temp_2; // sfix39_En35
-  wire signed [37:0] add_signext_6; // sfix38_En35
-  wire signed [37:0] add_signext_7; // sfix38_En35
-  wire signed [38:0] add_temp_3; // sfix39_En35
-  wire signed [37:0] add_signext_8; // sfix38_En35
-  wire signed [37:0] add_signext_9; // sfix38_En35
-  wire signed [38:0] add_temp_4; // sfix39_En35
-  wire signed [37:0] add_signext_10; // sfix38_En35
-  wire signed [37:0] add_signext_11; // sfix38_En35
-  wire signed [38:0] add_temp_5; // sfix39_En35
-  wire signed [37:0] add_signext_12; // sfix38_En35
-  wire signed [37:0] add_signext_13; // sfix38_En35
-  wire signed [38:0] add_temp_6; // sfix39_En35
-  wire signed [37:0] add_signext_14; // sfix38_En35
-  wire signed [37:0] add_signext_15; // sfix38_En35
-  wire signed [38:0] add_temp_7; // sfix39_En35
-  wire signed [37:0] add_signext_16; // sfix38_En35
-  wire signed [37:0] add_signext_17; // sfix38_En35
-  wire signed [38:0] add_temp_8; // sfix39_En35
-  wire signed [37:0] add_signext_18; // sfix38_En35
-  wire signed [37:0] add_signext_19; // sfix38_En35
-  wire signed [38:0] add_temp_9; // sfix39_En35
-  wire signed [37:0] add_signext_20; // sfix38_En35
-  wire signed [37:0] add_signext_21; // sfix38_En35
-  wire signed [38:0] add_temp_10; // sfix39_En35
-  wire signed [37:0] add_signext_22; // sfix38_En35
-  wire signed [37:0] add_signext_23; // sfix38_En35
-  wire signed [38:0] add_temp_11; // sfix39_En35
-  wire signed [37:0] add_signext_24; // sfix38_En35
-  wire signed [37:0] add_signext_25; // sfix38_En35
-  wire signed [38:0] add_temp_12; // sfix39_En35
-  wire signed [37:0] add_signext_26; // sfix38_En35
-  wire signed [37:0] add_signext_27; // sfix38_En35
-  wire signed [38:0] add_temp_13; // sfix39_En35
-  wire signed [37:0] add_signext_28; // sfix38_En35
-  wire signed [37:0] add_signext_29; // sfix38_En35
-  wire signed [38:0] add_temp_14; // sfix39_En35
-  wire signed [37:0] add_signext_30; // sfix38_En35
-  wire signed [37:0] add_signext_31; // sfix38_En35
-  wire signed [38:0] add_temp_15; // sfix39_En35
-  wire signed [37:0] add_signext_32; // sfix38_En35
-  wire signed [37:0] add_signext_33; // sfix38_En35
-  wire signed [38:0] add_temp_16; // sfix39_En35
-  wire signed [37:0] add_signext_34; // sfix38_En35
-  wire signed [37:0] add_signext_35; // sfix38_En35
-  wire signed [38:0] add_temp_17; // sfix39_En35
-  wire signed [37:0] add_signext_36; // sfix38_En35
-  wire signed [37:0] add_signext_37; // sfix38_En35
-  wire signed [38:0] add_temp_18; // sfix39_En35
-  wire signed [37:0] add_signext_38; // sfix38_En35
-  wire signed [37:0] add_signext_39; // sfix38_En35
-  wire signed [38:0] add_temp_19; // sfix39_En35
-  wire signed [37:0] add_signext_40; // sfix38_En35
-  wire signed [37:0] add_signext_41; // sfix38_En35
-  wire signed [38:0] add_temp_20; // sfix39_En35
-  wire signed [37:0] add_signext_42; // sfix38_En35
-  wire signed [37:0] add_signext_43; // sfix38_En35
-  wire signed [38:0] add_temp_21; // sfix39_En35
-  wire signed [37:0] add_signext_44; // sfix38_En35
-  wire signed [37:0] add_signext_45; // sfix38_En35
-  wire signed [38:0] add_temp_22; // sfix39_En35
-  wire signed [37:0] add_signext_46; // sfix38_En35
-  wire signed [37:0] add_signext_47; // sfix38_En35
-  wire signed [38:0] add_temp_23; // sfix39_En35
-  wire signed [37:0] add_signext_48; // sfix38_En35
-  wire signed [37:0] add_signext_49; // sfix38_En35
-  wire signed [38:0] add_temp_24; // sfix39_En35
-  wire signed [37:0] add_signext_50; // sfix38_En35
-  wire signed [37:0] add_signext_51; // sfix38_En35
-  wire signed [38:0] add_temp_25; // sfix39_En35
-  wire signed [37:0] add_signext_52; // sfix38_En35
-  wire signed [37:0] add_signext_53; // sfix38_En35
-  wire signed [38:0] add_temp_26; // sfix39_En35
-  wire signed [37:0] add_signext_54; // sfix38_En35
-  wire signed [37:0] add_signext_55; // sfix38_En35
-  wire signed [38:0] add_temp_27; // sfix39_En35
-  wire signed [37:0] add_signext_56; // sfix38_En35
-  wire signed [37:0] add_signext_57; // sfix38_En35
-  wire signed [38:0] add_temp_28; // sfix39_En35
-  wire signed [37:0] add_signext_58; // sfix38_En35
-  wire signed [37:0] add_signext_59; // sfix38_En35
-  wire signed [38:0] add_temp_29; // sfix39_En35
-  wire signed [37:0] add_signext_60; // sfix38_En35
-  wire signed [37:0] add_signext_61; // sfix38_En35
-  wire signed [38:0] add_temp_30; // sfix39_En35
-  wire signed [37:0] add_signext_62; // sfix38_En35
-  wire signed [37:0] add_signext_63; // sfix38_En35
-  wire signed [38:0] add_temp_31; // sfix39_En35
-  wire signed [37:0] add_signext_64; // sfix38_En35
-  wire signed [37:0] add_signext_65; // sfix38_En35
-  wire signed [38:0] add_temp_32; // sfix39_En35
+   reg  [1:0] cur_count; // ufix2
+   wire phase_1; // boolean
+   reg  signed [15:0] delay_pipeline [0:65] ; // sfix16_En15
+ 
+   wire signed [38:0] product; // sfix38_En35
+   wire signed [38:0] product_1; // sfix38_En35
+   wire signed [38:0] product_2; // sfix38_En35
+   wire signed [38:0] product_3; // sfix38_En35
+   wire signed [38:0] product_4; // sfix38_En35
+   wire signed [38:0] product_5; // sfix38_En35
+   wire signed [38:0] product_6; // sfix38_En35
+   wire signed [38:0] product_7; // sfix38_En35
+   wire signed [38:0] product_8; // sfix38_En35
+   wire signed [38:0] product_9; // sfix38_En35
+   wire signed [38:0] product_10; // sfix38_En35
+   wire signed [38:0] product_11; // sfix38_En35
+   wire signed [38:0] product_12; // sfix38_En35
+   wire signed [38:0] product_13; // sfix38_En35
+   wire signed [38:0] product_14; // sfix38_En35
+   wire signed [38:0] product_15; // sfix38_En35
+   wire signed [38:0] product_16; // sfix38_En35
+   wire signed [38:0] product_17; // sfix38_En35
+   wire signed [38:0] product_18; // sfix38_En35
+   wire signed [38:0] product_19; // sfix38_En35
+   wire signed [38:0] product_20; // sfix38_En35
+   wire signed [38:0] product_21; // sfix38_En35
+   wire signed [38:0] product_22; // sfix38_En35
+   wire signed [38:0] product_23; // sfix38_En35
+   wire signed [38:0] product_24; // sfix38_En35
+   wire signed [38:0] product_25; // sfix38_En35
+   wire signed [38:0] product_26; // sfix38_En35
+   wire signed [38:0] product_27; // sfix38_En35
+   wire signed [38:0] product_28; // sfix38_En35
+   wire signed [38:0] product_29; // sfix38_En35
+   wire signed [38:0] product_30; // sfix38_En35
+   wire signed [38:0] product_31; // sfix38_En35
+   wire signed [38:0] product_32; // sfix38_En35
+
+
+   wire signed [44:0] sumvector1 [0:32] ; // sfix45_En35
+   wire signed [16:0] add_temp; // sfix39_En35
+   wire signed [16:0] add_temp_1; // sfix39_En35
+   wire signed [16:0] add_temp_2; // sfix39_En35
+   wire signed [16:0] add_temp_3; // sfix39_En35
+   wire signed [16:0] add_temp_4; // sfix39_En35
+   wire signed [16:0] add_temp_5; // sfix39_En35
+   wire signed [16:0] add_temp_6; // sfix39_En35
+   wire signed [16:0] add_temp_7; // sfix39_En35
+   wire signed [16:0] add_temp_8; // sfix39_En35
+   wire signed [16:0] add_temp_9; // sfix39_En35
+   wire signed [16:0] add_temp_10; // sfix39_En35
+   wire signed [16:0] add_temp_11; // sfix39_En35
+   wire signed [16:0] add_temp_12; // sfix39_En35
+   wire signed [16:0] add_temp_13; // sfix39_En35
+   wire signed [16:0] add_temp_14; // sfix39_En35
+   wire signed [16:0] add_temp_15; // sfix39_En35
+   wire signed [16:0] add_temp_16; // sfix39_En35
+   wire signed [16:0] add_temp_17; // sfix39_En35
+   wire signed [16:0] add_temp_18; // sfix39_En35
+   wire signed [16:0] add_temp_19; // sfix39_En35
+   wire signed [16:0] add_temp_20; // sfix39_En35
+   wire signed [16:0] add_temp_21; // sfix39_En35
+   wire signed [16:0] add_temp_22; // sfix39_En35
+   wire signed [16:0] add_temp_23; // sfix39_En35
+   wire signed [16:0] add_temp_24; // sfix39_En35
+   wire signed [16:0] add_temp_25; // sfix39_En35
+   wire signed [16:0] add_temp_26; // sfix39_En35
+   wire signed [16:0] add_temp_27; // sfix39_En35
+   wire signed [16:0] add_temp_28; // sfix39_En35
+   wire signed [16:0] add_temp_29; // sfix39_En35
+   wire signed [16:0] add_temp_30; // sfix39_En35
+   wire signed [16:0] add_temp_31; // sfix39_En35
+   wire signed [16:0] add_temp_32; // sfix39_En35
+
+  
+  
   reg  signed [44:0] sumdelay_pipeline1 [0:32] ; // sfix45_En35
   wire signed [44:0] sumvector2 [0:16] ; // sfix45_En35
   wire signed [44:0] add_signext_66; // sfix45_En35
@@ -722,434 +464,172 @@ module halfBandFirst
     end // Delay_Pipeline_process
 
 
-  assign product_mux = (cur_count == 2'b00) ? coeffphase1_66 :
-                      coeffphase2_66;
-  assign product = delay_pipeline[65] * product_mux;
-
-  assign product_mux_1 = (cur_count == 2'b00) ? coeffphase1_65 :
-                        coeffphase2_65;
-  assign product_1 = delay_pipeline[64] * product_mux_1;
-
-  assign product_mux_2 = (cur_count == 2'b00) ? coeffphase1_64 :
-                        coeffphase2_64;
-  assign product_2 = delay_pipeline[63] * product_mux_2;
-
-  assign product_mux_3 = (cur_count == 2'b00) ? coeffphase1_63 :
-                        coeffphase2_63;
-  assign product_3 = delay_pipeline[62] * product_mux_3;
-
-  assign product_mux_4 = (cur_count == 2'b00) ? coeffphase1_62 :
-                        coeffphase2_62;
-  assign product_4 = delay_pipeline[61] * product_mux_4;
-
-  assign product_mux_5 = (cur_count == 2'b00) ? coeffphase1_61 :
-                        coeffphase2_61;
-  assign product_5 = delay_pipeline[60] * product_mux_5;
-
-  assign product_mux_6 = (cur_count == 2'b00) ? coeffphase1_60 :
-                        coeffphase2_60;
-  assign product_6 = delay_pipeline[59] * product_mux_6;
-
-  assign product_mux_7 = (cur_count == 2'b00) ? coeffphase1_59 :
-                        coeffphase2_59;
-  assign product_7 = delay_pipeline[58] * product_mux_7;
-
-  assign product_mux_8 = (cur_count == 2'b00) ? coeffphase1_58 :
-                        coeffphase2_58;
-  assign product_8 = delay_pipeline[57] * product_mux_8;
-
-  assign product_mux_9 = (cur_count == 2'b00) ? coeffphase1_57 :
-                        coeffphase2_57;
-  assign product_9 = delay_pipeline[56] * product_mux_9;
-
-  assign product_mux_10 = (cur_count == 2'b00) ? coeffphase1_56 :
-                         coeffphase2_56;
-  assign product_10 = delay_pipeline[55] * product_mux_10;
-
-  assign product_mux_11 = (cur_count == 2'b00) ? coeffphase1_55 :
-                         coeffphase2_55;
-  assign product_11 = delay_pipeline[54] * product_mux_11;
-
-  assign product_mux_12 = (cur_count == 2'b00) ? coeffphase1_54 :
-                         coeffphase2_54;
-  assign product_12 = delay_pipeline[53] * product_mux_12;
-
-  assign product_mux_13 = (cur_count == 2'b00) ? coeffphase1_53 :
-                         coeffphase2_53;
-  assign product_13 = delay_pipeline[52] * product_mux_13;
-
-  assign product_mux_14 = (cur_count == 2'b00) ? coeffphase1_52 :
-                         coeffphase2_52;
-  assign product_14 = delay_pipeline[51] * product_mux_14;
-
-  assign product_mux_15 = (cur_count == 2'b00) ? coeffphase1_51 :
-                         coeffphase2_51;
-  assign product_15 = delay_pipeline[50] * product_mux_15;
-
-  assign product_mux_16 = (cur_count == 2'b00) ? coeffphase1_50 :
-                         coeffphase2_50;
-  assign product_16 = delay_pipeline[49] * product_mux_16;
-
-  assign product_mux_17 = (cur_count == 2'b00) ? coeffphase1_49 :
-                         coeffphase2_49;
-  assign product_17 = delay_pipeline[48] * product_mux_17;
-
-  assign product_mux_18 = (cur_count == 2'b00) ? coeffphase1_48 :
-                         coeffphase2_48;
-  assign product_18 = delay_pipeline[47] * product_mux_18;
-
-  assign product_mux_19 = (cur_count == 2'b00) ? coeffphase1_47 :
-                         coeffphase2_47;
-  assign product_19 = delay_pipeline[46] * product_mux_19;
-
-  assign product_mux_20 = (cur_count == 2'b00) ? coeffphase1_46 :
-                         coeffphase2_46;
-  assign product_20 = delay_pipeline[45] * product_mux_20;
-
-  assign product_mux_21 = (cur_count == 2'b00) ? coeffphase1_45 :
-                         coeffphase2_45;
-  assign product_21 = delay_pipeline[44] * product_mux_21;
-
-  assign product_mux_22 = (cur_count == 2'b00) ? coeffphase1_44 :
-                         coeffphase2_44;
-  assign product_22 = delay_pipeline[43] * product_mux_22;
-
-  assign product_mux_23 = (cur_count == 2'b00) ? coeffphase1_43 :
-                         coeffphase2_43;
-  assign product_23 = delay_pipeline[42] * product_mux_23;
-
-  assign product_mux_24 = (cur_count == 2'b00) ? coeffphase1_42 :
-                         coeffphase2_42;
-  assign product_24 = delay_pipeline[41] * product_mux_24;
-
-  assign product_mux_25 = (cur_count == 2'b00) ? coeffphase1_41 :
-                         coeffphase2_41;
-  assign product_25 = delay_pipeline[40] * product_mux_25;
-
-  assign product_mux_26 = (cur_count == 2'b00) ? coeffphase1_40 :
-                         coeffphase2_40;
-  assign product_26 = delay_pipeline[39] * product_mux_26;
-
-  assign product_mux_27 = (cur_count == 2'b00) ? coeffphase1_39 :
-                         coeffphase2_39;
-  assign product_27 = delay_pipeline[38] * product_mux_27;
-
-  assign product_mux_28 = (cur_count == 2'b00) ? coeffphase1_38 :
-                         coeffphase2_38;
-  assign product_28 = delay_pipeline[37] * product_mux_28;
-
-  assign product_mux_29 = (cur_count == 2'b00) ? coeffphase1_37 :
-                         coeffphase2_37;
-  assign product_29 = delay_pipeline[36] * product_mux_29;
-
-  assign product_mux_30 = (cur_count == 2'b00) ? coeffphase1_36 :
-                         coeffphase2_36;
-  assign product_30 = delay_pipeline[35] * product_mux_30;
-
-  assign product_mux_31 = (cur_count == 2'b00) ? coeffphase1_35 :
-                         coeffphase2_35;
-  assign product_31 = delay_pipeline[34] * product_mux_31;
-
-  assign product_mux_32 = (cur_count == 2'b00) ? coeffphase1_34 :
-                         coeffphase2_34;
-  assign product_32 = delay_pipeline[33] * product_mux_32;
-
-  assign product_mux_33 = (cur_count == 2'b00) ? coeffphase1_33 :
-                         coeffphase2_33;
-  assign product_33 = delay_pipeline[32] * product_mux_33;
-
-  assign product_mux_34 = (cur_count == 2'b00) ? coeffphase1_32 :
-                         coeffphase2_32;
-  assign product_34 = delay_pipeline[31] * product_mux_34;
-
-  assign product_mux_35 = (cur_count == 2'b00) ? coeffphase1_31 :
-                         coeffphase2_31;
-  assign product_35 = delay_pipeline[30] * product_mux_35;
-
-  assign product_mux_36 = (cur_count == 2'b00) ? coeffphase1_30 :
-                         coeffphase2_30;
-  assign product_36 = delay_pipeline[29] * product_mux_36;
-
-  assign product_mux_37 = (cur_count == 2'b00) ? coeffphase1_29 :
-                         coeffphase2_29;
-  assign product_37 = delay_pipeline[28] * product_mux_37;
-
-  assign product_mux_38 = (cur_count == 2'b00) ? coeffphase1_28 :
-                         coeffphase2_28;
-  assign product_38 = delay_pipeline[27] * product_mux_38;
-
-  assign product_mux_39 = (cur_count == 2'b00) ? coeffphase1_27 :
-                         coeffphase2_27;
-  assign product_39 = delay_pipeline[26] * product_mux_39;
-
-  assign product_mux_40 = (cur_count == 2'b00) ? coeffphase1_26 :
-                         coeffphase2_26;
-  assign product_40 = delay_pipeline[25] * product_mux_40;
-
-  assign product_mux_41 = (cur_count == 2'b00) ? coeffphase1_25 :
-                         coeffphase2_25;
-  assign product_41 = delay_pipeline[24] * product_mux_41;
-
-  assign product_mux_42 = (cur_count == 2'b00) ? coeffphase1_24 :
-                         coeffphase2_24;
-  assign product_42 = delay_pipeline[23] * product_mux_42;
-
-  assign product_mux_43 = (cur_count == 2'b00) ? coeffphase1_23 :
-                         coeffphase2_23;
-  assign product_43 = delay_pipeline[22] * product_mux_43;
-
-  assign product_mux_44 = (cur_count == 2'b00) ? coeffphase1_22 :
-                         coeffphase2_22;
-  assign product_44 = delay_pipeline[21] * product_mux_44;
-
-  assign product_mux_45 = (cur_count == 2'b00) ? coeffphase1_21 :
-                         coeffphase2_21;
-  assign product_45 = delay_pipeline[20] * product_mux_45;
-
-  assign product_mux_46 = (cur_count == 2'b00) ? coeffphase1_20 :
-                         coeffphase2_20;
-  assign product_46 = delay_pipeline[19] * product_mux_46;
-
-  assign product_mux_47 = (cur_count == 2'b00) ? coeffphase1_19 :
-                         coeffphase2_19;
-  assign product_47 = delay_pipeline[18] * product_mux_47;
-
-  assign product_mux_48 = (cur_count == 2'b00) ? coeffphase1_18 :
-                         coeffphase2_18;
-  assign product_48 = delay_pipeline[17] * product_mux_48;
-
-  assign product_mux_49 = (cur_count == 2'b00) ? coeffphase1_17 :
-                         coeffphase2_17;
-  assign product_49 = delay_pipeline[16] * product_mux_49;
-
-  assign product_mux_50 = (cur_count == 2'b00) ? coeffphase1_16 :
-                         coeffphase2_16;
-  assign product_50 = delay_pipeline[15] * product_mux_50;
-
-  assign product_mux_51 = (cur_count == 2'b00) ? coeffphase1_15 :
-                         coeffphase2_15;
-  assign product_51 = delay_pipeline[14] * product_mux_51;
-
-  assign product_mux_52 = (cur_count == 2'b00) ? coeffphase1_14 :
-                         coeffphase2_14;
-  assign product_52 = delay_pipeline[13] * product_mux_52;
-
-  assign product_mux_53 = (cur_count == 2'b00) ? coeffphase1_13 :
-                         coeffphase2_13;
-  assign product_53 = delay_pipeline[12] * product_mux_53;
-
-  assign product_mux_54 = (cur_count == 2'b00) ? coeffphase1_12 :
-                         coeffphase2_12;
-  assign product_54 = delay_pipeline[11] * product_mux_54;
-
-  assign product_mux_55 = (cur_count == 2'b00) ? coeffphase1_11 :
-                         coeffphase2_11;
-  assign product_55 = delay_pipeline[10] * product_mux_55;
-
-  assign product_mux_56 = (cur_count == 2'b00) ? coeffphase1_10 :
-                         coeffphase2_10;
-  assign product_56 = delay_pipeline[9] * product_mux_56;
-
-  assign product_mux_57 = (cur_count == 2'b00) ? coeffphase1_9 :
-                         coeffphase2_9;
-  assign product_57 = delay_pipeline[8] * product_mux_57;
-
-  assign product_mux_58 = (cur_count == 2'b00) ? coeffphase1_8 :
-                         coeffphase2_8;
-  assign product_58 = delay_pipeline[7] * product_mux_58;
-
-  assign product_mux_59 = (cur_count == 2'b00) ? coeffphase1_7 :
-                         coeffphase2_7;
-  assign product_59 = delay_pipeline[6] * product_mux_59;
-
-  assign product_mux_60 = (cur_count == 2'b00) ? coeffphase1_6 :
-                         coeffphase2_6;
-  assign product_60 = delay_pipeline[5] * product_mux_60;
-
-  assign product_mux_61 = (cur_count == 2'b00) ? coeffphase1_5 :
-                         coeffphase2_5;
-  assign product_61 = delay_pipeline[4] * product_mux_61;
-
-  assign product_mux_62 = (cur_count == 2'b00) ? coeffphase1_4 :
-                         coeffphase2_4;
-  assign product_62 = delay_pipeline[3] * product_mux_62;
-
-  assign product_mux_63 = (cur_count == 2'b00) ? coeffphase1_3 :
-                         coeffphase2_3;
-  assign product_63 = delay_pipeline[2] * product_mux_63;
-
-  assign product_mux_64 = (cur_count == 2'b00) ? coeffphase1_2 :
-                         coeffphase2_2;
-  assign product_64 = delay_pipeline[1] * product_mux_64;
-
-  assign product_mux_65 = (cur_count == 2'b00) ? coeffphase1_1 :
-                         coeffphase2_1;
-  assign product_65 = delay_pipeline[0] * product_mux_65;
-
-  assign add_signext = product;
-  assign add_signext_1 = product_1;
-  assign add_temp = add_signext + add_signext_1;
-  assign sumvector1[0] = $signed({{6{add_temp[38]}}, add_temp});
-
-  assign add_signext_2 = product_2;
-  assign add_signext_3 = product_3;
-  assign add_temp_1 = add_signext_2 + add_signext_3;
-  assign sumvector1[1] = $signed({{6{add_temp_1[38]}}, add_temp_1});
-
-  assign add_signext_4 = product_4;
-  assign add_signext_5 = product_5;
-  assign add_temp_2 = add_signext_4 + add_signext_5;
-  assign sumvector1[2] = $signed({{6{add_temp_2[38]}}, add_temp_2});
-
-  assign add_signext_6 = product_6;
-  assign add_signext_7 = product_7;
-  assign add_temp_3 = add_signext_6 + add_signext_7;
-  assign sumvector1[3] = $signed({{6{add_temp_3[38]}}, add_temp_3});
-
-  assign add_signext_8 = product_8;
-  assign add_signext_9 = product_9;
-  assign add_temp_4 = add_signext_8 + add_signext_9;
-  assign sumvector1[4] = $signed({{6{add_temp_4[38]}}, add_temp_4});
-
-  assign add_signext_10 = product_10;
-  assign add_signext_11 = product_11;
-  assign add_temp_5 = add_signext_10 + add_signext_11;
-  assign sumvector1[5] = $signed({{6{add_temp_5[38]}}, add_temp_5});
-
-  assign add_signext_12 = product_12;
-  assign add_signext_13 = product_13;
-  assign add_temp_6 = add_signext_12 + add_signext_13;
-  assign sumvector1[6] = $signed({{6{add_temp_6[38]}}, add_temp_6});
-
-  assign add_signext_14 = product_14;
-  assign add_signext_15 = product_15;
-  assign add_temp_7 = add_signext_14 + add_signext_15;
-  assign sumvector1[7] = $signed({{6{add_temp_7[38]}}, add_temp_7});
-
-  assign add_signext_16 = product_16;
-  assign add_signext_17 = product_17;
-  assign add_temp_8 = add_signext_16 + add_signext_17;
-  assign sumvector1[8] = $signed({{6{add_temp_8[38]}}, add_temp_8});
-
-  assign add_signext_18 = product_18;
-  assign add_signext_19 = product_19;
-  assign add_temp_9 = add_signext_18 + add_signext_19;
-  assign sumvector1[9] = $signed({{6{add_temp_9[38]}}, add_temp_9});
-
-  assign add_signext_20 = product_20;
-  assign add_signext_21 = product_21;
-  assign add_temp_10 = add_signext_20 + add_signext_21;
-  assign sumvector1[10] = $signed({{6{add_temp_10[38]}}, add_temp_10});
-
-  assign add_signext_22 = product_22;
-  assign add_signext_23 = product_23;
-  assign add_temp_11 = add_signext_22 + add_signext_23;
-  assign sumvector1[11] = $signed({{6{add_temp_11[38]}}, add_temp_11});
-
-  assign add_signext_24 = product_24;
-  assign add_signext_25 = product_25;
-  assign add_temp_12 = add_signext_24 + add_signext_25;
-  assign sumvector1[12] = $signed({{6{add_temp_12[38]}}, add_temp_12});
-
-  assign add_signext_26 = product_26;
-  assign add_signext_27 = product_27;
-  assign add_temp_13 = add_signext_26 + add_signext_27;
-  assign sumvector1[13] = $signed({{6{add_temp_13[38]}}, add_temp_13});
-
-  assign add_signext_28 = product_28;
-  assign add_signext_29 = product_29;
-  assign add_temp_14 = add_signext_28 + add_signext_29;
-  assign sumvector1[14] = $signed({{6{add_temp_14[38]}}, add_temp_14});
-
-  assign add_signext_30 = product_30;
-  assign add_signext_31 = product_31;
-  assign add_temp_15 = add_signext_30 + add_signext_31;
-  assign sumvector1[15] = $signed({{6{add_temp_15[38]}}, add_temp_15});
-
-  assign add_signext_32 = product_32;
-  assign add_signext_33 = product_33;
-  assign add_temp_16 = add_signext_32 + add_signext_33;
-  assign sumvector1[16] = $signed({{6{add_temp_16[38]}}, add_temp_16});
-
-  assign add_signext_34 = product_34;
-  assign add_signext_35 = product_35;
-  assign add_temp_17 = add_signext_34 + add_signext_35;
-  assign sumvector1[17] = $signed({{6{add_temp_17[38]}}, add_temp_17});
-
-  assign add_signext_36 = product_36;
-  assign add_signext_37 = product_37;
-  assign add_temp_18 = add_signext_36 + add_signext_37;
-  assign sumvector1[18] = $signed({{6{add_temp_18[38]}}, add_temp_18});
-
-  assign add_signext_38 = product_38;
-  assign add_signext_39 = product_39;
-  assign add_temp_19 = add_signext_38 + add_signext_39;
-  assign sumvector1[19] = $signed({{6{add_temp_19[38]}}, add_temp_19});
-
-  assign add_signext_40 = product_40;
-  assign add_signext_41 = product_41;
-  assign add_temp_20 = add_signext_40 + add_signext_41;
-  assign sumvector1[20] = $signed({{6{add_temp_20[38]}}, add_temp_20});
-
-  assign add_signext_42 = product_42;
-  assign add_signext_43 = product_43;
-  assign add_temp_21 = add_signext_42 + add_signext_43;
-  assign sumvector1[21] = $signed({{6{add_temp_21[38]}}, add_temp_21});
-
-  assign add_signext_44 = product_44;
-  assign add_signext_45 = product_45;
-  assign add_temp_22 = add_signext_44 + add_signext_45;
-  assign sumvector1[22] = $signed({{6{add_temp_22[38]}}, add_temp_22});
-
-  assign add_signext_46 = product_46;
-  assign add_signext_47 = product_47;
-  assign add_temp_23 = add_signext_46 + add_signext_47;
-  assign sumvector1[23] = $signed({{6{add_temp_23[38]}}, add_temp_23});
-
-  assign add_signext_48 = product_48;
-  assign add_signext_49 = product_49;
-  assign add_temp_24 = add_signext_48 + add_signext_49;
-  assign sumvector1[24] = $signed({{6{add_temp_24[38]}}, add_temp_24});
-
-  assign add_signext_50 = product_50;
-  assign add_signext_51 = product_51;
-  assign add_temp_25 = add_signext_50 + add_signext_51;
-  assign sumvector1[25] = $signed({{6{add_temp_25[38]}}, add_temp_25});
-
-  assign add_signext_52 = product_52;
-  assign add_signext_53 = product_53;
-  assign add_temp_26 = add_signext_52 + add_signext_53;
-  assign sumvector1[26] = $signed({{6{add_temp_26[38]}}, add_temp_26});
-
-  assign add_signext_54 = product_54;
-  assign add_signext_55 = product_55;
-  assign add_temp_27 = add_signext_54 + add_signext_55;
-  assign sumvector1[27] = $signed({{6{add_temp_27[38]}}, add_temp_27});
-
-  assign add_signext_56 = product_56;
-  assign add_signext_57 = product_57;
-  assign add_temp_28 = add_signext_56 + add_signext_57;
-  assign sumvector1[28] = $signed({{6{add_temp_28[38]}}, add_temp_28});
-
-  assign add_signext_58 = product_58;
-  assign add_signext_59 = product_59;
-  assign add_temp_29 = add_signext_58 + add_signext_59;
-  assign sumvector1[29] = $signed({{6{add_temp_29[38]}}, add_temp_29});
-
-  assign add_signext_60 = product_60;
-  assign add_signext_61 = product_61;
-  assign add_temp_30 = add_signext_60 + add_signext_61;
-  assign sumvector1[30] = $signed({{6{add_temp_30[38]}}, add_temp_30});
-
-  assign add_signext_62 = product_62;
-  assign add_signext_63 = product_63;
-  assign add_temp_31 = add_signext_62 + add_signext_63;
-  assign sumvector1[31] = $signed({{6{add_temp_31[38]}}, add_temp_31});
-
-  assign add_signext_64 = product_64;
-  assign add_signext_65 = product_65;
-  assign add_temp_32 = add_signext_64 + add_signext_65;
-  assign sumvector1[32] = $signed({{6{add_temp_32[38]}}, add_temp_32});
+   assign add_temp = delay_pipeline[0] + delay_pipeline[65];
+   assign add_temp_1 = delay_pipeline[1] + delay_pipeline[64];
+   assign add_temp_2 = delay_pipeline[2] + delay_pipeline[63];
+   assign add_temp_3 = delay_pipeline[3] + delay_pipeline[62];
+   assign add_temp_4 = delay_pipeline[4] + delay_pipeline[61];
+   assign add_temp_5 = delay_pipeline[5] + delay_pipeline[60];
+   assign add_temp_6 = delay_pipeline[6] + delay_pipeline[59];
+   assign add_temp_7 = delay_pipeline[7] + delay_pipeline[58];
+   assign add_temp_8  = delay_pipeline[8]  + delay_pipeline[57];
+   assign add_temp_9  = delay_pipeline[9]  + delay_pipeline[56];
+   assign add_temp_10 = delay_pipeline[10] + delay_pipeline[55];
+   assign add_temp_11 = delay_pipeline[11] + delay_pipeline[54];
+   assign add_temp_12 = delay_pipeline[12] + delay_pipeline[53];
+   assign add_temp_13 = delay_pipeline[13] + delay_pipeline[52];
+   assign add_temp_14 = delay_pipeline[14] + delay_pipeline[51];
+   assign add_temp_15 = delay_pipeline[15] + delay_pipeline[50];
+   assign add_temp_16 = delay_pipeline[16] + delay_pipeline[49];
+   assign add_temp_17 = delay_pipeline[17] + delay_pipeline[48];
+   assign add_temp_18 = delay_pipeline[18] + delay_pipeline[47];
+   assign add_temp_19 = delay_pipeline[19] + delay_pipeline[46];
+   assign add_temp_20 = delay_pipeline[20] + delay_pipeline[45];
+   assign add_temp_21 = delay_pipeline[21] + delay_pipeline[44];
+   assign add_temp_22 = delay_pipeline[22] + delay_pipeline[43];
+   assign add_temp_23 = delay_pipeline[23] + delay_pipeline[42];
+   assign add_temp_24 = delay_pipeline[24] + delay_pipeline[41];
+   assign add_temp_25 = delay_pipeline[25] + delay_pipeline[40];
+   assign add_temp_26 = delay_pipeline[26] + delay_pipeline[39];
+   assign add_temp_27 = delay_pipeline[27] + delay_pipeline[38];
+   assign add_temp_28 = delay_pipeline[28] + delay_pipeline[37];
+   assign add_temp_29 = delay_pipeline[29] + delay_pipeline[36];
+   assign add_temp_30 = delay_pipeline[30] + delay_pipeline[35];
+   assign add_temp_31 = delay_pipeline[31] + delay_pipeline[34];
+   assign add_temp_32 = delay_pipeline[32] + delay_pipeline[33];
+
+  assign product = (cur_count == 2'b00) ? add_temp * coeffphase1_66 : 0;
+  
+  assign product_1 = (cur_count == 2'b00) ? add_temp_1 * coeffphase1_65 : 0;
+
+  assign product_2 = (cur_count == 2'b00) ? add_temp_2 * coeffphase1_64 : 0;
+
+  assign product_3 = (cur_count == 2'b00) ? add_temp_3 * coeffphase1_63 : 0;
+  
+  assign product_4 = (cur_count == 2'b00) ? add_temp_4 * coeffphase1_62 : 0;
+  
+  assign product_5 = (cur_count == 2'b00) ? add_temp_5 * coeffphase1_61 : 0;
+  
+  assign product_6 = (cur_count == 2'b00) ? add_temp_6 * coeffphase1_60 : 0;
+  
+  assign product_7 = (cur_count == 2'b00) ? add_temp_7 * coeffphase1_59 : 0;
+  
+  assign product_8 = (cur_count == 2'b00) ? add_temp_8  * coeffphase1_58 : 0;
+  
+  assign product_9 = (cur_count == 2'b00) ? add_temp_9  * coeffphase1_57 : 0;
+  
+  assign product_10 = (cur_count == 2'b00) ? add_temp_10 * coeffphase1_56 : 0;
+  
+  assign product_11 = (cur_count == 2'b00) ? add_temp_11 * coeffphase1_55 : 0;
+  
+  assign product_12 = (cur_count == 2'b00) ? add_temp_12 * coeffphase1_54 : 0;
+  
+  assign product_13 = (cur_count == 2'b00) ? add_temp_13 * coeffphase1_53 : 0;
+  
+  assign product_14 = (cur_count == 2'b00) ? add_temp_14 * coeffphase1_52 : 0;
+  
+  assign product_15 = (cur_count == 2'b00) ? add_temp_15 * coeffphase1_51 : 0;
+  
+  assign product_16 = (cur_count == 2'b00) ? add_temp_16 * coeffphase1_50 : 0;
+  
+  assign product_17 = (cur_count == 2'b00) ? add_temp_17 * coeffphase1_49 : 0;  
+
+  assign product_18 = (cur_count == 2'b00) ? add_temp_18 * coeffphase1_48 : 0;  
+															  
+  assign product_19 = (cur_count == 2'b00) ? add_temp_19 * coeffphase1_47 : 0;  
+															  
+  assign product_20 = (cur_count == 2'b00) ? add_temp_20 * coeffphase1_46 : 0;  
+															  
+  assign product_21 = (cur_count == 2'b00) ? add_temp_21 * coeffphase1_45 : 0;  
+															  
+  assign product_22 = (cur_count == 2'b00) ? add_temp_22 * coeffphase1_44 : 0;
+															  
+  assign product_23 = (cur_count == 2'b00) ? add_temp_23 * coeffphase1_43 : 0;  
+															  
+  assign product_24 = (cur_count == 2'b00) ? add_temp_24 * coeffphase1_42 : 0;  
+															  
+  assign product_25 = (cur_count == 2'b00) ? add_temp_25 * coeffphase1_41 : 0;  
+															  
+  assign product_26 = (cur_count == 2'b00) ? add_temp_26 * coeffphase1_40 : 0;  
+															  
+  assign product_27 = (cur_count == 2'b00) ? add_temp_27 * coeffphase1_39 : 0;  
+															  
+  assign product_28 = (cur_count == 2'b00) ? add_temp_28 * coeffphase1_38 : 0;  
+															  
+  assign product_29 = (cur_count == 2'b00) ? add_temp_29 * coeffphase1_37 : 0;
+															  
+  assign product_30 = (cur_count == 2'b00) ? add_temp_30 * coeffphase1_36 : 0; 
+															  
+  assign product_31 = (cur_count == 2'b00) ? add_temp_31 * coeffphase1_35 : 0;
+															  
+  assign product_32 = (cur_count == 2'b00) ? add_temp_32 * coeffphase1_34 : delay_pipeline[32] * coeffphase2_33;
+
+
+  assign sumvector1[0] = $signed({{6{product[38]}}, product});
+
+  assign sumvector1[1] = $signed({{6{product_1[38]}}, product_1});
+
+  assign sumvector1[2] = $signed({{6{product_2[38]}}, product_2});
+
+  assign sumvector1[3] = $signed({{6{product_3[38]}}, product_3});
+
+  assign sumvector1[4] = $signed({{6{product_4[38]}}, product_4});
+
+  assign sumvector1[5] = $signed({{6{product_5[38]}}, product_5});
+
+  assign sumvector1[6] = $signed({{6{product_6[38]}}, product_6});
+
+  assign sumvector1[7] = $signed({{6{product_7[38]}}, product_7});
+
+  assign sumvector1[8] = $signed({{6{product_8[38]}}, product_8});
+
+  assign sumvector1[9] = $signed({{6{product_9[38]}}, product_9});
+
+  assign sumvector1[10] = $signed({{6{product_10[38]}}, product_10});
+
+  assign sumvector1[11] = $signed({{6{product_11[38]}}, product_11});
+
+  assign sumvector1[12] = $signed({{6{product_12[38]}}, product_12});
+
+  assign sumvector1[13] = $signed({{6{product_13[38]}}, product_13});
+
+  assign sumvector1[14] = $signed({{6{product_14[38]}}, product_14});
+
+  assign sumvector1[15] = $signed({{6{product_15[38]}}, product_15});
+
+  assign sumvector1[16] = $signed({{6{product_16[38]}}, product_16});
+
+  assign sumvector1[17] = $signed({{6{product_17[38]}}, product_17});
+
+  assign sumvector1[18] = $signed({{6{product_18[38]}}, product_18});
+
+  assign sumvector1[19] = $signed({{6{product_19[38]}}, product_19});
+
+  assign sumvector1[20] = $signed({{6{product_20[38]}}, product_20});
+
+  assign sumvector1[21] = $signed({{6{product_21[38]}}, product_21});
+
+  assign sumvector1[22] = $signed({{6{product_22[38]}}, product_22});
+
+  assign sumvector1[23] = $signed({{6{product_23[38]}}, product_23});
+
+  assign sumvector1[24] = $signed({{6{product_24[38]}}, product_24});
+
+  assign sumvector1[25] = $signed({{6{product_25[38]}}, product_25});
+
+  assign sumvector1[26] = $signed({{6{product_26[38]}}, product_26});
+
+  assign sumvector1[27] = $signed({{6{product_27[38]}}, product_27});
+
+  assign sumvector1[28] = $signed({{6{product_28[38]}}, product_28});
+
+  assign sumvector1[29] = $signed({{6{product_29[38]}}, product_29});
+
+  assign sumvector1[30] = $signed({{6{product_30[38]}}, product_30});
+
+  assign sumvector1[31] = $signed({{6{product_31[38]}}, product_31});
+
+  assign sumvector1[32] = $signed({{6{product_32[38]}}, product_32});
 
   always @ (posedge clk or posedge reset)
     begin: sumdelay_pipeline_process1

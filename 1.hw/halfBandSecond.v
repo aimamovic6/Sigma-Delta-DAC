@@ -49,11 +49,7 @@
 // Arithmetic            : fixed
 // Numerator             : s20,18 -> [-2 2)
 // -------------------------------------------------------------
-
-
-
-
-//`timescale 1 ns / 1 ns
+`timescale 1 ns / 1 ns
 
 module halfBandSecond
                (
@@ -78,78 +74,36 @@ module halfBandSecond
   // Local Functions
   // Type Definitions
   // Constants
-  parameter signed [19:0] coeffphase1_1 = 20'b11111111111101001001; //sfix20_En18
-  parameter signed [19:0] coeffphase1_2 = 20'b00000000010100101001; //sfix20_En18
-  parameter signed [19:0] coeffphase1_3 = 20'b11111110101100101010; //sfix20_En18
-  parameter signed [19:0] coeffphase1_4 = 20'b00000011111010011110; //sfix20_En18
-  parameter signed [19:0] coeffphase1_5 = 20'b11110101100000001111; //sfix20_En18
-  parameter signed [19:0] coeffphase1_6 = 20'b00100111100110110101; //sfix20_En18
   parameter signed [19:0] coeffphase1_7 = 20'b00100111100110110101; //sfix20_En18
   parameter signed [19:0] coeffphase1_8 = 20'b11110101100000001111; //sfix20_En18
   parameter signed [19:0] coeffphase1_9 = 20'b00000011111010011110; //sfix20_En18
   parameter signed [19:0] coeffphase1_10 = 20'b11111110101100101010; //sfix20_En18
   parameter signed [19:0] coeffphase1_11 = 20'b00000000010100101001; //sfix20_En18
   parameter signed [19:0] coeffphase1_12 = 20'b11111111111101001001; //sfix20_En18
-  parameter signed [19:0] coeffphase2_1 = 20'b00000000000000000000; //sfix20_En18
-  parameter signed [19:0] coeffphase2_2 = 20'b00000000000000000000; //sfix20_En18
-  parameter signed [19:0] coeffphase2_3 = 20'b00000000000000000000; //sfix20_En18
-  parameter signed [19:0] coeffphase2_4 = 20'b00000000000000000000; //sfix20_En18
-  parameter signed [19:0] coeffphase2_5 = 20'b00000000000000000000; //sfix20_En18
+
   parameter signed [19:0] coeffphase2_6 = 20'b01000000000000000000; //sfix20_En18
-  parameter signed [19:0] coeffphase2_7 = 20'b00000000000000000000; //sfix20_En18
-  parameter signed [19:0] coeffphase2_8 = 20'b00000000000000000000; //sfix20_En18
-  parameter signed [19:0] coeffphase2_9 = 20'b00000000000000000000; //sfix20_En18
-  parameter signed [19:0] coeffphase2_10 = 20'b00000000000000000000; //sfix20_En18
-  parameter signed [19:0] coeffphase2_11 = 20'b00000000000000000000; //sfix20_En18
-  parameter signed [19:0] coeffphase2_12 = 20'b00000000000000000000; //sfix20_En18
 
   // Signals
   reg  [1:0] cur_count; // ufix2
   wire phase_1; // boolean
   reg  signed [20:0] delay_pipeline [0:11] ; // sfix21_En15
-  wire signed [40:0] product; // sfix41_En33
-  wire signed [19:0] product_mux; // sfix20_En18
-  wire signed [40:0] product_1; // sfix41_En33
-  wire signed [19:0] product_mux_1; // sfix20_En18
-  wire signed [40:0] product_2; // sfix41_En33
-  wire signed [19:0] product_mux_2; // sfix20_En18
-  wire signed [40:0] product_3; // sfix41_En33
-  wire signed [19:0] product_mux_3; // sfix20_En18
-  wire signed [40:0] product_4; // sfix41_En33
-  wire signed [19:0] product_mux_4; // sfix20_En18
-  wire signed [40:0] product_5; // sfix41_En33
-  wire signed [19:0] product_mux_5; // sfix20_En18
-  wire signed [40:0] product_6; // sfix41_En33
-  wire signed [19:0] product_mux_6; // sfix20_En18
-  wire signed [40:0] product_7; // sfix41_En33
-  wire signed [19:0] product_mux_7; // sfix20_En18
-  wire signed [40:0] product_8; // sfix41_En33
-  wire signed [19:0] product_mux_8; // sfix20_En18
-  wire signed [40:0] product_9; // sfix41_En33
-  wire signed [19:0] product_mux_9; // sfix20_En18
-  wire signed [40:0] product_10; // sfix41_En33
-  wire signed [19:0] product_mux_10; // sfix20_En18
-  wire signed [40:0] product_11; // sfix41_En33
-  wire signed [19:0] product_mux_11; // sfix20_En18
-  wire signed [44:0] sumvector1 [0:5] ; // sfix45_En33
-  wire signed [40:0] add_signext; // sfix41_En33
-  wire signed [40:0] add_signext_1; // sfix41_En33
-  wire signed [41:0] add_temp; // sfix42_En33
-  wire signed [40:0] add_signext_2; // sfix41_En33
-  wire signed [40:0] add_signext_3; // sfix41_En33
-  wire signed [41:0] add_temp_1; // sfix42_En33
-  wire signed [40:0] add_signext_4; // sfix41_En33
-  wire signed [40:0] add_signext_5; // sfix41_En33
-  wire signed [41:0] add_temp_2; // sfix42_En33
-  wire signed [40:0] add_signext_6; // sfix41_En33
-  wire signed [40:0] add_signext_7; // sfix41_En33
-  wire signed [41:0] add_temp_3; // sfix42_En33
-  wire signed [40:0] add_signext_8; // sfix41_En33
-  wire signed [40:0] add_signext_9; // sfix41_En33
-  wire signed [41:0] add_temp_4; // sfix42_En33
-  wire signed [40:0] add_signext_10; // sfix41_En33
-  wire signed [40:0] add_signext_11; // sfix41_En33
-  wire signed [41:0] add_temp_5; // sfix42_En33
+  
+   wire signed [41:0] product; // sfix38_En35
+   wire signed [41:0] product_1; // sfix38_En35
+   wire signed [41:0] product_2; // sfix38_En35
+   wire signed [41:0] product_3; // sfix38_En35
+   wire signed [41:0] product_4; // sfix38_En35
+   wire signed [41:0] product_5; // sfix38_En35
+   wire signed [41:0] product_6; // sfix38_En35
+   wire signed [44:0] sumvector1 [0:5] ; // sfix45_En33
+ 
+   wire signed [21:0] add_temp; // sfix42_En33
+   wire signed [21:0] add_temp_1; // sfix42_En33
+   wire signed [21:0] add_temp_2; // sfix42_En33
+   wire signed [21:0] add_temp_3; // sfix42_En33
+   wire signed [21:0] add_temp_4; // sfix42_En33
+   wire signed [21:0] add_temp_5; // sfix42_En33  
+  
   reg  signed [44:0] sumdelay_pipeline1 [0:5] ; // sfix45_En33
   wire signed [44:0] sumvector2 [0:2] ; // sfix45_En33
   wire signed [44:0] add_signext_12; // sfix45_En33
@@ -231,83 +185,26 @@ module halfBandSecond
     end // Delay_Pipeline_process
 
 
-  assign product_mux = (cur_count == 2'b00) ? coeffphase1_12 :
-                      coeffphase2_12;
-  assign product = delay_pipeline[11] * product_mux;
+   assign add_temp = delay_pipeline[0] + delay_pipeline[11];
+   assign add_temp_1 = delay_pipeline[1] + delay_pipeline[10];
+   assign add_temp_2 = delay_pipeline[2] + delay_pipeline[9];
+   assign add_temp_3 = delay_pipeline[3] + delay_pipeline[8];
+   assign add_temp_4 = delay_pipeline[4] + delay_pipeline[7];
+   assign add_temp_5 = delay_pipeline[5] + delay_pipeline[6];
+   
+   assign product = (cur_count == 2'b00) ? add_temp * coeffphase1_12 : 0;  
+   assign product_1 = (cur_count == 2'b00) ? add_temp_1 * coeffphase1_11 : 0;
+   assign product_2 = (cur_count == 2'b00) ? add_temp_2 * coeffphase1_10 : 0;
+   assign product_3 = (cur_count == 2'b00) ? add_temp_3 * coeffphase1_9 : 0;  
+   assign product_4 = (cur_count == 2'b00) ? add_temp_4 * coeffphase1_8 : 0;  
+   assign product_5 = (cur_count == 2'b00) ? add_temp_5 * coeffphase1_7 : coeffphase2_6 * delay_pipeline[5];
 
-  assign product_mux_1 = (cur_count == 2'b00) ? coeffphase1_11 :
-                        coeffphase2_11;
-  assign product_1 = delay_pipeline[10] * product_mux_1;
-
-  assign product_mux_2 = (cur_count == 2'b00) ? coeffphase1_10 :
-                        coeffphase2_10;
-  assign product_2 = delay_pipeline[9] * product_mux_2;
-
-  assign product_mux_3 = (cur_count == 2'b00) ? coeffphase1_9 :
-                        coeffphase2_9;
-  assign product_3 = delay_pipeline[8] * product_mux_3;
-
-  assign product_mux_4 = (cur_count == 2'b00) ? coeffphase1_8 :
-                        coeffphase2_8;
-  assign product_4 = delay_pipeline[7] * product_mux_4;
-
-  assign product_mux_5 = (cur_count == 2'b00) ? coeffphase1_7 :
-                        coeffphase2_7;
-  assign product_5 = delay_pipeline[6] * product_mux_5;
-
-  assign product_mux_6 = (cur_count == 2'b00) ? coeffphase1_6 :
-                        coeffphase2_6;
-  assign product_6 = delay_pipeline[5] * product_mux_6;
-
-  assign product_mux_7 = (cur_count == 2'b00) ? coeffphase1_5 :
-                        coeffphase2_5;
-  assign product_7 = delay_pipeline[4] * product_mux_7;
-
-  assign product_mux_8 = (cur_count == 2'b00) ? coeffphase1_4 :
-                        coeffphase2_4;
-  assign product_8 = delay_pipeline[3] * product_mux_8;
-
-  assign product_mux_9 = (cur_count == 2'b00) ? coeffphase1_3 :
-                        coeffphase2_3;
-  assign product_9 = delay_pipeline[2] * product_mux_9;
-
-  assign product_mux_10 = (cur_count == 2'b00) ? coeffphase1_2 :
-                         coeffphase2_2;
-  assign product_10 = delay_pipeline[1] * product_mux_10;
-
-  assign product_mux_11 = (cur_count == 2'b00) ? coeffphase1_1 :
-                         coeffphase2_1;
-  assign product_11 = delay_pipeline[0] * product_mux_11;
-
-  assign add_signext = product;
-  assign add_signext_1 = product_1;
-  assign add_temp = add_signext + add_signext_1;
-  assign sumvector1[0] = $signed({{3{add_temp[41]}}, add_temp});
-
-  assign add_signext_2 = product_2;
-  assign add_signext_3 = product_3;
-  assign add_temp_1 = add_signext_2 + add_signext_3;
-  assign sumvector1[1] = $signed({{3{add_temp_1[41]}}, add_temp_1});
-
-  assign add_signext_4 = product_4;
-  assign add_signext_5 = product_5;
-  assign add_temp_2 = add_signext_4 + add_signext_5;
-  assign sumvector1[2] = $signed({{3{add_temp_2[41]}}, add_temp_2});
-
-  assign add_signext_6 = product_6;
-  assign add_signext_7 = product_7;
-  assign add_temp_3 = add_signext_6 + add_signext_7;
-  assign sumvector1[3] = $signed({{3{add_temp_3[41]}}, add_temp_3});
-
-  assign add_signext_8 = product_8;
-  assign add_signext_9 = product_9;
-  assign add_temp_4 = add_signext_8 + add_signext_9;
-  assign sumvector1[4] = $signed({{3{add_temp_4[41]}}, add_temp_4});
-
-  assign add_signext_10 = product_10;
-  assign add_signext_11 = product_11;
-  assign add_temp_5 = add_signext_10 + add_signext_11;
-  assign sumvector1[5] = $signed({{3{add_temp_5[41]}}, add_temp_5});
+  assign sumvector1[0] = $signed({{3{product[41]}}, product});
+  assign sumvector1[1] = $signed({{3{product_1[41]}}, product_1});													  
+  assign sumvector1[2] = $signed({{3{product_2[41]}}, product_2});													  
+  assign sumvector1[3] = $signed({{3{product_3[41]}}, product_3});													  
+  assign sumvector1[4] = $signed({{3{product_4[41]}}, product_4});													  
+  assign sumvector1[5] = $signed({{3{product_5[41]}}, product_5});
 
   always @ (posedge clk or posedge reset)
     begin: sumdelay_pipeline_process1
