@@ -4,8 +4,8 @@ module sd_dac_top(
     output output_pdm // 1-bit PDM output
 );
 
-    wire clk_44kHz;        // Clock signal for the sine wave generator (44.1 kHz)
-    wire signed [15:0] sine_wave;
+    wire clk_44kHz, clk_176kHz ;        // Clock signal for the sine wave generator (44.1 kHz)
+    wire signed [19:0] sine_wave;
     wire signed [15:0] filter_output;
     wire clk_enable;
     wire ce_out;
@@ -32,13 +32,15 @@ module sd_dac_top(
     // Clock divider instance
     clk_divider u_clk_divider(
         .clk_in(clk0),       // Global clock input
-        .reset(reset),      // Reset signal
-        .clk_out(clk_44kHz) // Divided clock output (44.1 kHz)
+        .reset(reset),       // Reset signal
+        .clk_out(clk_44kHz),
+        .clk_out_1 (clk_176kHz) // Divided clock output (44.1 kHz)
     );
+
 
     // Sine wave generator instance
     sine_wave_generator u_sine_wave_generator(
-        .clk(clk_44kHz),    // Use the divided clock (44.1 kHz)
+        .clk(clk_176kHz),    // Use the divided clock (44.1 kHz)
         .reset(reset),
         .sine_out(sine_wave)
     );
@@ -57,9 +59,11 @@ module sd_dac_top(
     // Sigma-delta modulator instance
     sigma_delta_modulator u_sigma_delta_modulator(
         .clk(clk0),
-        .reset(reset),
+        .rst_n(!reset),
         .in(filter_output),
         .out(output_pdm)
     );
+
+   // assign output_pdm = filter_output[0];
 
 endmodule
