@@ -22,6 +22,7 @@ module interpolatingFilter(
     wire              ce_cic3;
     wire              ce_cic4;
 
+<<<<<<< HEAD
    // Instantiate each filter module
     //halfBandFirst filter1 (
         //.clk(clk),
@@ -31,6 +32,17 @@ module interpolatingFilter(
         //.filter_out(output_halfBandFirst),
         //.ce_out(ce_halfBandFirst)
     //);
+=======
+  //  Instantiate each filter module
+    halfBandFirst filter1 (
+        .clk(clk),
+        .clk_enable(ce_halfBandSecond),
+        .reset(reset),
+        .filter_in(input_data),
+        .filter_out(output_halfBandFirst),
+        .ce_out(ce_halfBandFirst)
+    );
+>>>>>>> e85fedd7c2d27795db0f002bcb963c1a6aaab062
 
     //halfBandSecond filter2 (
         //.clk(clk),
