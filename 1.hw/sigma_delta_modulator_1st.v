@@ -1,4 +1,4 @@
-module sigma_delta_modulator (
+module sigma_delta_modulator_1st (
     input wire clk,              // Clock signal
     input wire rst_n,            // Active-low reset
     input wire signed [15:0] in, // 16-bit input from the interpolating filter
@@ -6,22 +6,20 @@ module sigma_delta_modulator (
 );
 
     // Internal signals
-    wire [20:0] sd_in;
+    wire [19:0] sd_in;
 
-    reg signed [20:0] s1, w1, y1;
+    reg signed [19:0] s1, y1;
 
-    reg signed [20:0] r, s, v, w, y;
+    reg signed [19:0] r, s, y;
 
     localparam FULLSC = 19'd49152; // Full scale of 16 bit at +-150%
 
-    assign sd_in = {{5{in[15]}}, in};
+    assign sd_in = {{4{in[15]}}, in};
 
     always @* begin
         r = sd_in - y1;
         s = r + s1;
-        v = s - y1;
-        w = v + w1;
-        y = (w[20] == 1'b0) ? FULLSC : - FULLSC;
+        y = (s[19] == 1'b0) ? FULLSC : - FULLSC;
     end
 
     // Sequential logic
@@ -29,14 +27,12 @@ module sigma_delta_modulator (
         if (rst_n == 1'b0) begin
             // Reset all registers to zero
             s1 <= 0;
-            w1 <= 0;
             y1  <= 0;
             out <= 0;
         end else begin
             s1 <= s;
-            w1 <= w;
             y1 <= y;
-            out <= ~w[20]; // Output '1' if MSB of w is '0', otherwise '0'
+            out <= ~y[19]; // Output '1' if MSB of w is '0', otherwise '0'
         end
     end
 
