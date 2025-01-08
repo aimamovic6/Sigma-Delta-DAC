@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+`timescale 1ns/1ps
 
 module sd_dac_top_tb;
 
@@ -12,37 +12,40 @@ module sd_dac_top_tb;
     reset = 0;
   end
 
-
-
-      // Clock and reset signals
+    // Inputs to the DUT
     reg clk;
     reg reset;
-    wire signed output_pdm;
+
+    // Outputs from the DUT
+    wire output_pdm_p;
 
     // Instantiate the DUT (Device Under Test)
     sd_dac_top uut (
-        .clk(clk),             // Global clock input (128x44.1 kHz)
-        .reset(reset),         // Reset signal
-        .output_pdm(output_pdm) // 1-bit PDM output
+        .clk(clk),
+        .reset(reset),
+        .output_pdm_p(output_pdm_p)
     );
 
-    // Clock generation (128x44.1 kHz = 5.6448 MHz)
-    initial begin
-        clk = 0;
-        forever #88.5 clk = ~clk; // Toggle clock every 88.5ns (5.6448 MHz)
-    end
+    // Clock generation
+    always #50 clk = ~clk; // 10 MHz clock period = 100 ns, so toggle every 50 ns for 10 MHz
 
-    // Reset generation and simulation control
+    // Test sequence
     initial begin
-        // Initialize signals
+        // Initialize inputs
+        clk = 0;
+        reset = 0;  // Start with reset enabled
+
+        // Apply reset for 200 ns, then release
+        #200;
         reset = 1;
 
-        // Apply reset for a short duration
-        #100 reset = 0; // De-assert reset after 100ns
+        // Run the simulation for some time (e.g., 10 ms)
+        #4000000;  // 10 ms = 10,000,000 ns
 
-        // Run the simulation for a sufficient duration
-        #10_000_000
-        $finish; // Stop simulation after 2ms
+        // Finish the simulation
+        $finish;
     end
+
+
 
 endmodule

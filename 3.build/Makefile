@@ -32,12 +32,16 @@ TOOL_ROOT = /home/ahmed/Desktop/tools/
 # Toolchain Directories and Executable Commands
 CC_TOOL_DIR = $(CC_TOOL)
 YOSYS = $(CC_TOOL)/bin/yosys/yosys$(EXE)
-YOSYSGHDL = /home/ahmed/Desktop/tools/yosys/yosys
+YOSYSGHDL = /usr/local/bin/yosys$(EXE)
 #YOSYS = $(TOOL_ROOT)/yosys/yosys For newer version of YOSYS
 PR = $(CC_TOOL)/bin/p_r/p_r$(EXE)
 #OFL = $(CC_TOOL)/bin/openFPGALoader/openFPGALoader$(EXE) # Path to OFL needs to be latest version of OFL or you will get errors when programming the board
-OFL = $(TOOL_ROOT)/openFPGALoader/build/openFPGALoader$(EXE)
+#OFL = $(TOOL_ROOT)/openFPGALoader/build/openFPGALoader$(EXE)
+OFL = /home/ahmed/openFPGALoader/build/openFPGALoader$(EXE)
 
+# SYNLIG SystemVerilog Plugin
+SYNLIG = $(TOOL_ROOT)/synlig
+PLUGIN_PATH := $(SYNLIG)/build/release/systemverilog-plugin/systemverilog.so
 
 # Simulation Tools and Flags
 GTKW = gtkwave
@@ -78,15 +82,15 @@ synth_vlog: $(VLOG_SRC)
 synth_vhdl: $(VHDL_SRC)
 	@test -d log || mkdir log
 	@test -d net || mkdir net
-	$(YOSYS) -ql log/synth.log -p 'ghdl --warn-no-binding -C --ieee=synopsys $^ -e $(TOP); synth_gatemate -top $(TOP) -nomx8 -vlog net/$(TOP)_synth.v'
+	$(YOSYSGHDL) -m ghdl -ql log/synth.log -p 'ghdl --warn-no-binding -C --ieee=synopsys $^ -e $(TOP); synth_gatemate -top $(TOP) -nomx8 -vlog net/$(TOP)_synth.v'
 
 impl:
-	$(PR) -i net/$(TOP)_synth.v -o $(TOP) -ccf $(TOP).ccf -cCP> log/$@.log
+	$(PR) -i net/$(TOP)_synth.v -o $(TOP) -ccf $(TOP).ccf -cCP > log/$@.log
 
 jtag:
 
 	$(OFL) $(OFLFLAGS) -b gatemate_evb_jtag --bitstream $(TOP)_00.cfg
-	#$(OFL) $(OFLFLAGS) -b olimex_gatemateevb --cable dirtyJtag --bitstream $(TOP)_00.cfg
+
 
 jtag-flash:
 	$(OFL) $(OFLFLAGS) -b gatemate_evb_jtag -f --verify $(TOP)_00.cfg
@@ -101,9 +105,9 @@ all: synth impl jtag
 
 ## verilog simulation targets
 vlog_sim.vvp:
-	$(IVL) $(IVLFLAGS) -o $(SIM)/$@ $(VLOG_SRC) $(SIM)/$(TOP)_tb.v $(CELLS_SYNTH) $(CELLS_IMPL)
+	$(IVL) $(IVLFLAGS) -o $(SIM)/$@ $(VLOG_SRC) $(SIM)/$(TOP)_tb.v $(CELLS_IMPL) $(CELLS_SYNTH)
 synth_sim.vvp:
-	$(IVL) $(IVLFLAGS) -o $(SIM)/$@ net/$(TOP)_synth.v $(SIM)/$(TOP)_tb.v $(CELLS_SYNTH)  $(CELLS_IMPL)
+	$(IVL) $(IVLFLAGS) -o $(SIM)/$@ net/$(TOP)_synth.v $(SIM)/$(TOP)_tb.v $(CELLS_SYNTH) $(CELLS_IMPL)
 impl_sim.vvp:
 	$(IVL) $(IVLFLAGS) -o $(SIM)/$@ $(TOP)_00.v $(SIM)/$(TOP)_tb.v $(CELLS_IMPL)
 .PHONY: %sim %sim.vvp
@@ -125,7 +129,6 @@ clean:
 	$(RM) *.path_struc
 	$(RM) *.net
 	$(RM) *.id
-	$(RM) *.idh
 	$(RM) *.prn
 	$(RM) *_00.v
 	$(RM) *.used
