@@ -331,6 +331,7 @@ module cic1
       end
     end // integrator_delay_section6
 
+  //assign output_typeconvert = $signed({section_out6[16:0], 2'b00});
   assign output_typeconvert = $signed({section_out6[16:0], 2'b00});
 
   //   ------------------ Output Register ------------------
