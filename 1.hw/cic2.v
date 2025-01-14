@@ -135,7 +135,7 @@ module cic2
       end
     end // ce_output
 
-  assign  phase_0 = (cur_count == 2'b00 && clk_enable == 1'b1) ? 1'b1 : 1'b0;
+  assign  phase_0 = (cur_count == 2'b01 && clk_enable == 1'b1) ? 1'b1 : 1'b0;
 
   //   ------------------ Input Register ------------------
 
